@@ -73,8 +73,6 @@ class Curve2D(ABC):
     @abstractmethod
     def length(self) -> float: pass
 
-
-
 class Line2D(Curve2D):
     def __init__(self, v0: Vec2D, v1: Vec2D):
         self.v0 = v0
@@ -83,18 +81,14 @@ class Line2D(Curve2D):
 
     def parametric(self, t: float) -> Vec2D:
         return self.v0 + (self.new_vector * t)
-      	
-             
+               
     def tangent(self, t: float) -> Vec2D:
-        
-      	return self.new_vector
+        return self.new_vector
 
-      
     def length(self) -> float:
-        
         return self.new_vector.length()
-    
 
+    
 class Arc2D(Curve2D):
     def __init__(self, start: Vec2D, center: Vec2D, angle_deg: float):
         self.start = start
@@ -103,7 +97,6 @@ class Arc2D(Curve2D):
         self.r0 = start - center # vector from center to start
 
         self.radius = self.r0.length()
-
 
     def parametric(self, t: float) -> Vec2D:
         theta = t * self.angle_rad
@@ -115,13 +108,10 @@ class Arc2D(Curve2D):
         r1 = Vec2D(x, y) #rotated "vector from center to start"
 
         return self.center + r1
-      	
-             
+
     def tangent(self, t: float) -> Vec2D:
-        
-      	return self.r0
-      
-      
+        return self.r0
+
     def length(self) -> float:
-        
         return abs(self.radius * self.angle_rad)
+    

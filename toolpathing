@@ -28,7 +28,10 @@ def draw_curves_2D(curves: list):
         x_values = [curve.parametric(t).x for t in t_values]
         y_values = [curve.parametric(t).y for t in t_values]
 
-        plt.plot(x_values, y_values, label="Line2D", color='blue')
+        if isinstance(curve, Line2D):
+            plt.plot(x_values, y_values, color='blue')
+        elif isinstance(curve, Arc2D):
+            plt.plot(x_values, y_values, color='red')
 
     plt.xlabel("X")
     plt.ylabel("Y")
@@ -43,19 +46,11 @@ curves = []
 
 curves.append(draw_line_2D(5, 5, -5, 5))
 curves.append(draw_arc_2D(-5, 5, -5, 3, 180))
+curves.append(draw_line_2D(-5, 1, 5, 1))
+curves.append(draw_arc_2D(5, 1, 5, 0, -90))
+curves.append(draw_line_2D(6, 0, 6, -2))
+curves.append(draw_arc_2D(6, -2, 5, -2, -90))
+curves.append(draw_line_2D(5, -3, -5, -3))
 
 
 draw_curves_2D(curves)
-
-
-
-# for x_vals, y_vals in curves:
-#     plt.plot(x_vals, y_vals, label="Line2D", color='blue')
-#     plt.scatter([v0.x, v1.x], [v0.y, v1.y], color='red', label="Endpoints")
-# plt.xlabel("X")
-# plt.ylabel("Y")
-# plt.title("Line2D Plot")
-# plt.legend()
-# plt.grid(True)
-# plt.axis('equal')
-# plt.show()
