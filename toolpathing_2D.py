@@ -53,3 +53,41 @@ def custom_toolpath_2D():
 
 
     draw_curves_2D(curves)
+
+def canned_toolpath_2D(start_x: float, start_y: float, length: float, step: float, turns: int):
+
+    curves = []
+
+    start_pattern = Vec2D(start_x, start_y)
+    start_pattern_1 = Vec2D(start_x - length, start_y)
+
+    arc_offset = Vec2D(0, step / 2)
+    line_offset = Vec2D(length, 0)
+
+    curves.append(Line2D(start_pattern, start_pattern_1))
+
+    right_turn = True
+
+    for turn in range(turns):
+        if right_turn == True:
+            last_pos_vector = curves[-1].parametric(1)
+            curves.append(Arc2D(last_pos_vector, last_pos_vector - arc_offset, 180))
+            last_pos_vector = curves[-1].parametric(1)
+            curves.append(Line2D(last_pos_vector, last_pos_vector + line_offset))
+            right_turn = False
+
+        elif right_turn == False:
+            last_pos_vector = curves[-1].parametric(1)
+            curves.append(Arc2D(last_pos_vector, last_pos_vector - arc_offset, -180))
+            last_pos_vector = curves[-1].parametric(1)
+            curves.append(Line2D(last_pos_vector, last_pos_vector - line_offset))
+            right_turn = True
+        
+            
+    draw_curves_2D(curves)
+
+
+
+
+
+

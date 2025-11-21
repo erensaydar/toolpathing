@@ -30,7 +30,7 @@ class Vec2D:
     # let's not ignore the left vs right multiplication distinction
     def __mul__(self, scale: float) -> "Vec2D":
         #assert type(scale) == float
-        assert isinstance(scale, float) or isinstance(scale, np.floating)
+        #assert isinstance(scale, float) or isinstance(scale, np.floating)
         
         new_x = self.x * scale
         new_y = self.y * scale
@@ -115,3 +115,4 @@ class Arc2D(Curve2D):
     def length(self) -> float:
         return abs(self.radius * self.angle_rad)
     
+
