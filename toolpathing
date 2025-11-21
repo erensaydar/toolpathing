@@ -1,0 +1,61 @@
+from data_structures import Vec2D, Line2D, Arc2D
+
+import matplotlib.pyplot as plt
+import numpy as np
+
+# Assuming Vec2D and Line2D are already defined
+
+def draw_line_2D(x0: int, y0: int, x1: int, y1: int):
+
+    v0 = Vec2D(x0, y0)
+    v1 = Vec2D(x1, y1)
+    line = Line2D(v0, v1)
+
+    return line
+
+def draw_arc_2D(x_start: int, y_start: int, x_center: int, y_center: int, angle_deg: float):
+
+    start = Vec2D(x_start, y_start)
+    center = Vec2D(x_center, y_center)
+    arc = Arc2D(start, center, angle_deg)
+
+    return arc
+
+def draw_curves_2D(curves: list):
+
+    for curve in curves:
+        t_values = np.linspace(0, 1, 100) #this is basically the resolution of the drawing
+        x_values = [curve.parametric(t).x for t in t_values]
+        y_values = [curve.parametric(t).y for t in t_values]
+
+        plt.plot(x_values, y_values, label="Line2D", color='blue')
+
+    plt.xlabel("X")
+    plt.ylabel("Y")
+    plt.title("2D Plot")
+    plt.legend()
+    plt.grid(True)
+    plt.axis('equal')
+    plt.show()
+    
+    
+curves = []
+
+curves.append(draw_line_2D(5, 5, -5, 5))
+curves.append(draw_arc_2D(-5, 5, -5, 3, 180))
+
+
+draw_curves_2D(curves)
+
+
+
+# for x_vals, y_vals in curves:
+#     plt.plot(x_vals, y_vals, label="Line2D", color='blue')
+#     plt.scatter([v0.x, v1.x], [v0.y, v1.y], color='red', label="Endpoints")
+# plt.xlabel("X")
+# plt.ylabel("Y")
+# plt.title("Line2D Plot")
+# plt.legend()
+# plt.grid(True)
+# plt.axis('equal')
+# plt.show()
