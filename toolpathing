@@ -3,8 +3,6 @@ from data_structures import Vec2D, Line2D, Arc2D
 import matplotlib.pyplot as plt
 import numpy as np
 
-# Assuming Vec2D and Line2D are already defined
-
 def draw_line_2D(x0: int, y0: int, x1: int, y1: int):
 
     v0 = Vec2D(x0, y0)
@@ -41,7 +39,8 @@ def draw_curves_2D(curves: list):
     plt.axis('equal')
     plt.show()
     
-    
+
+
 curves = []
 
 curves.append(draw_line_2D(5, 5, -5, 5))

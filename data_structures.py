@@ -27,7 +27,7 @@ class Vec2D:
         return Vec2D(new_x, new_y)
         
 
-    # let's ignore the left vs right multiplication distinction
+    # let's not ignore the left vs right multiplication distinction
     def __mul__(self, scale: float) -> "Vec2D":
         #assert type(scale) == float
         assert isinstance(scale, float) or isinstance(scale, np.floating)
