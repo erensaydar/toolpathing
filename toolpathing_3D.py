@@ -44,16 +44,16 @@ def draw_curves_3D(curves: list):
     plt.show()
 
 
-def canned_toolpath_3D():
+def canned_toolpath_3D(radius: float, turns: float, height: float, x_center: int, y_center: int, z_center: int):
     curves = []
 
-    curves.append(draw_helix_3D(4, 5, 10, 0, 0, 0))
-    #curves.append(draw_line_3D(2, 3, 5, 5, 5, 5))
+    curves.append(draw_helix_3D(radius, turns, height, x_center, y_center, z_center))
 
     draw_curves_3D(curves)
 
 
 def draw_interactive_helix(helix):
+    
     fig = plt.figure()
     ax = fig.add_subplot(111, projection='3d')
     plt.subplots_adjust(bottom=0.25)  # Make space for slider

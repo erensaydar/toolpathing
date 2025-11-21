@@ -41,6 +41,13 @@ def draw_curves_2D(curves: list):
     
 
 def custom_toolpath_2D():
+
+    """
+    This method manually creates a custom toolpath with lines and arcs.
+
+    """
+
+
     curves = []
 
     curves.append(draw_line_2D(5, 5, -5, 5))
@@ -55,16 +62,32 @@ def custom_toolpath_2D():
     draw_curves_2D(curves)
 
 def canned_toolpath_2D(start_x: float, start_y: float, length: float, step: float, turns: int):
+    """
+    This method creates a zigzag toolpath with semicircular arcs.
+    The assumption is that pattern will always start by going left and will iterate dowanward y axis.
+    Can be changed in the future to be more sophisticated with another parameter for initial direction.
+    
+    Parameters:
+    start_x (float): starting x coordinate  of the toolpath
+    start_y (float): starting y coordinate of the toolpath
+    length (float): length of each horizontal line segment
+    step (float): vertical distance between each horizontal line segment
+    turns (int): number of zigzag turns (each turn consists of first one arc and then one line segment)
 
+    """
     curves = []
 
+    # first create the first line towards left, this is just part of the assumption that we want closed pattern
     start_pattern = Vec2D(start_x, start_y)
     start_pattern_1 = Vec2D(start_x - length, start_y)
 
+    curves.append(Line2D(start_pattern, start_pattern_1))
+
+    # then calculate the vectors that will be offsetting the arcs and lines
     arc_offset = Vec2D(0, step / 2)
     line_offset = Vec2D(length, 0)
 
-    curves.append(Line2D(start_pattern, start_pattern_1))
+
 
     right_turn = True
 

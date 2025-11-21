@@ -109,7 +109,7 @@ class Helix3D(Curve3D):
         return Vec3D(x, y, z)
 
     def tangent(self, t: float) -> Vec3D:
-        pass
+        pass # can be implemented if needed, just didnt use it for the plotting for now
 
     def length(self) -> float:
-        pass
+        pass # can be implemented if needed, just didnt use it for the plotting for now
