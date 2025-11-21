@@ -1,4 +1,4 @@
-from data_structures import Vec2D, Line2D, Arc2D
+from data_structures_2D import Vec2D, Line2D, Arc2D
 
 import matplotlib.pyplot as plt
 import numpy as np
@@ -40,16 +40,16 @@ def draw_curves_2D(curves: list):
     plt.show()
     
 
+def custom_toolpath_2D():
+    curves = []
 
-curves = []
-
-curves.append(draw_line_2D(5, 5, -5, 5))
-curves.append(draw_arc_2D(-5, 5, -5, 3, 180))
-curves.append(draw_line_2D(-5, 1, 5, 1))
-curves.append(draw_arc_2D(5, 1, 5, 0, -90))
-curves.append(draw_line_2D(6, 0, 6, -2))
-curves.append(draw_arc_2D(6, -2, 5, -2, -90))
-curves.append(draw_line_2D(5, -3, -5, -3))
+    curves.append(draw_line_2D(5, 5, -5, 5))
+    curves.append(draw_arc_2D(-5, 5, -5, 3, 180))
+    curves.append(draw_line_2D(-5, 1, 5, 1))
+    curves.append(draw_arc_2D(5, 1, 5, 0, -90))
+    curves.append(draw_line_2D(6, 0, 6, -2))
+    curves.append(draw_arc_2D(6, -2, 5, -2, -90))
+    curves.append(draw_line_2D(5, -3, -5, -3))
 
 
-draw_curves_2D(curves)
+    draw_curves_2D(curves)

@@ -110,7 +110,7 @@ class Arc2D(Curve2D):
         return self.center + r1
 
     def tangent(self, t: float) -> Vec2D:
-        return self.r0
+        pass
 
     def length(self) -> float:
         return abs(self.radius * self.angle_rad)

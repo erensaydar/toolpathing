@@ -94,7 +94,7 @@ class Line3D(Curve3D):
         return self.new_vector.length()
 
 
-class Helix(Curve3D):
+class Helix3D(Curve3D):
     def __init__(self, radius: float, turns: float, height: float, center: Vec3D):
         self.radius = radius
         self.n = turns
@@ -109,11 +109,7 @@ class Helix(Curve3D):
         return Vec3D(x, y, z)
 
     def tangent(self, t: float) -> Vec3D:
-        angle = 2 * math.pi * self.n * t
-        dx_dt = -self.radius * 2 * math.pi * self.n * math.sin(angle)
-        dy_dt = self.radius * 2 * math.pi * self.n * math.cos(angle)
-        dz_dt = self.h
-        return Vec3D(dx_dt, dy_dt, dz_dt)
+        pass
 
     def length(self) -> float:
-        return math.sqrt((2 * math.pi * self.radius) ** 2 + (self.pitch) ** 2) * self.total_turns
+        pass
