@@ -53,7 +53,14 @@ def canned_toolpath_3D(radius: float, turns: float, height: float, x_center: int
 
 
 def draw_interactive_helix(helix):
-    
+    """
+    This method exists only to prove that helix is going downward with chining t value from 0 to 1.
+    Can use the slider to chage t value and visualize the helix going down plotted in real time.
+
+    I looked up parts of this method online to build the fancy matplotlib slider because the main idea for this was just to showcase the intuition.
+
+    """
+
     fig = plt.figure()
     ax = fig.add_subplot(111, projection='3d')
     plt.subplots_adjust(bottom=0.25)  # Make space for slider
